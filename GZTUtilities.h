@@ -13,4 +13,7 @@
 
 +(NSDictionary *)indexKeyedDictionaryFromArray:(NSArray *)array;
 +(NSDictionary *) DictionaryFromArray: (NSArray*)array WithKey:(NSString *)key;
++(NSArray *)getArrayFromString:(NSString *)string;
++(NSString *)getStringFromArray:(NSArray*) myArray;
+
 @end

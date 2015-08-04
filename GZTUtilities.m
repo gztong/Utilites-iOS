@@ -22,6 +22,22 @@
     return (NSDictionary *)mutableDictionary;
 }
 
++(NSArray *)getArrayFromString:(NSString *)string{
+    
+    NSData *jsonData = [string dataUsingEncoding:NSUTF8StringEncoding];
+    NSError *localError;
+    NSArray *myArray = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:&localError];
+    
+    return myArray;
+}
+
++(NSString *)getStringFromArray:(NSArray*) myArray{
+    NSError *localError;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:myArray options:NSJSONWritingPrettyPrinted error:&localError];
+    NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    
+    return jsonString;
+}
 
 //  Convert an array of objects to a dictionary whose key is certain field of the object
 //  Parameter: NSArray, NSString
